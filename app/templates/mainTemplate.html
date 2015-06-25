@@ -1,0 +1,17 @@
+<div id="ContentFlow">
+	<div class="loadIndicator"><div class="indicator"></div></div>
+	<div class="flow">
+		<% for(var i = 0; i < 7; i++){ %>
+			<div class="item">
+				<img class="content" src="<%= ref.data[i].media %>" ></img>
+				<div class="caption">
+					<a href="#/product<%= ref.data[i].subitems[0].url_link %>">
+						<%= ref.data[i].label %>
+					</a>
+				</div>
+			</div>
+		<% }; %>				
+	</div>
+	<div class="globalCaption"></div>
+	<div class="scrollbar"><div class="slider"><div class="position"></div></div></div>
+</div>

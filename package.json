@@ -1,0 +1,22 @@
+{
+  "name": "BurberryTest",
+  "version": "1.0.0",
+  "description": "### Node.js, express",
+  "main": "server.js",
+  "directories": {
+    "BurbTest": "BurbTest"
+  },
+  "dependencies": {
+    "backbone": "^1.2.1",
+    "path": "^0.11.14",
+    "body-parser": "^1.12.3",
+    "express-session": "^1.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Mani Amuthan|https://github.com/ManiAmuthan/",
+  "license": "ISC"
+}

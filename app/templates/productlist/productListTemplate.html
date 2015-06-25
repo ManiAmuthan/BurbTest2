@@ -1,0 +1,20 @@
+<div id="ContentFlowPList">
+	<div class="loadIndicator"><div class="indicator"></div></div>
+	<div class="flow">
+	
+		<% _.each( ref.shelves, function( shelf ){ %>
+		<% for(var i = 0; i < 7; i++){ %>
+			<div class="item">
+				<img class="content" src="<%= shelf.products[i].media.image %>" ></img>
+				<div class="caption">
+					<a>
+						<%= shelf.products[i].default_name %>
+					</a>
+				</div>
+			</div>
+		<% }; %>
+		<% }); %>			
+	</div>
+	<div class="globalCaption"></div>
+	<div class="scrollbar"><div class="slider"><div class="position"></div></div></div>
+</div>
