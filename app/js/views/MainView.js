@@ -25,6 +25,7 @@ define([
 							var cf = new ContentFlow('ContentFlow', {reflectionColor: "#000000", 
 																	circularFlow : false, 
 																	startItem: 0});	
+							cf.init();
 						});
 						
 					}, 1000);
