@@ -8,10 +8,10 @@ describe('ProductList Collection', function() {
 	describe('when fetch', function(){
 		it('should set URL', function(){
 			var collection = {
-				url: "https://api.burberry.com/v1/apps/ecom/pages/"
+				url: 'https://api.github.com/repos/'
 			};
 			this.plist.collection = produListCollection;
-			expect(this.plist.url()).toEqual("https://api.burberry.com/v1/apps/ecom/pages/");			
+			expect(this.plist.url()).toEqual('https://api.github.com/repos/');			
 			
 		});
 	});

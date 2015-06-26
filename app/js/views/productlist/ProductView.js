@@ -2,17 +2,43 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'models/CommentModel',
   'collections/producListCollection',
   'text!templates/productlist/productListTemplate.html'
-], function($, _, Backbone, pListCollection, productTemplate){
+], function($, _, Backbone, commentModel, pListCollection, productTemplate){
  
   var pListView = Backbone.View.extend({
 		el: '.containerMain',
+		currFilePath : '',
+		currSha : '',
+		currRepos : '',
 		initialize: function () {
-		  
+		},
+		events : {
+			"click #addCommentBtn" : 'whenAddCommentBtnClicked',
+			"click .flow .item" : 'onItemSelected'
+		},
+		whenAddCommentBtnClicked : function(){
+			console.log("Add Comment Cliked :: " + $('#commentTextArea').val());
+			var commentMod = new commentModel(
+				{"body" : $('#commentTextArea').val(),
+				"path" : this.currFilePath,
+				"position" : 1,
+				"line" : null},
+				{success:function (collection, response) {
+					console.log(collection + " :: "+ response)
+				}}, {'repos' : this.currRepos, 'sha': this.currSha}
+			);
+			commentMod.save();
+			
+		},
+		onItemSelected : function(evt){
+			this.currFilePath = evt.currentTarget.getAttribute('data-path');
+			this.currSha = evt.currentTarget.getAttribute('data-sha');
 		},
 		render: function (_subPath) {
 			var that = this;
+			this.currRepos = _subPath;
 			var collection = new pListCollection([], {subPath:_subPath});
 			collection.fetch({
 				success:function (collection, response) {
@@ -25,12 +51,9 @@ define([
 							var cf = new ContentFlow('ContentFlowPList', {reflectionColor: "#000000", 
 																	circularFlow : false, 
 																	startItem: 0});	
-							//cf._defaultConf.reload(true);
 							cf.init();
-							//cf.reload(true);
 						});
-						
-					}, 2000);
+					}, 1000);
 				
 				}
 			});

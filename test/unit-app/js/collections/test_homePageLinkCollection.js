@@ -8,10 +8,10 @@ describe('ProductList Collection', function() {
 	describe('when fetch', function(){
 		it('should set URL', function(){
 			var collection = {
-				url: "https://api.burberry.com/v1/apps/ecom/navigation?country=GB"
+				url: 'https://community-dweetio.p.mashape.com/get/dweets/for/maniamuthann'
 			};
 			this.hLink.collection = homelinkCollection;
-			expect(this.plist.url()).toEqual("https://api.burberry.com/v1/apps/ecom/navigation?country=GB");			
+			expect(this.plist.url()).toEqual('https://community-dweetio.p.mashape.com/get/dweets/for/maniamuthann');			
 		});
 	});
 });

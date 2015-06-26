@@ -1,27 +1,37 @@
-<div id="ContentFlowPList" class="ContentFlow">
-	<div class="loadIndicator"><div class="indicator"></div></div>
-	<div class="flow">
-		<% _.each( ref, function( file ){ %>
-			<div class="item">
-				<% if(file.type == "blob"){ %>
-					<img class="content" src="/css/img/file_reestr.png" ></img>
-				<% }else { %>
-					<img class="content" src="/css/img/Folder-icon.png" ></img>
-				<% } %>
-				<div class="caption">
-				
-					<% if(file.sha == undefined) { %>
-						<a href="#/product/<%= file.full_name %> /git/trees/master">	
-					<% } else { %>
-							<a href="#/product/<%- escape(file.url) %>">
+<div>
+	<div id="ContentFlowPList" class="ContentFlow">
+		<div class="loadIndicator"><div class="indicator"></div></div>
+		<div class="flow">
+			<% _.each( ref, function( file ){ %>
+				<div class="item" data-path="<%= file.path %>" data-sha="<%= file.sha %>">
+					<% if(file.type == "blob"){ %>
+						<img class="content" src="/css/img/file_reestr.png" ></img>
+					<% }else { %>
+						<img class="content" src="/css/img/Folder-icon.png" ></img>
 					<% } %>
+					<div class="caption">
 					
-						<%= file.path %>
-					</a>
+						<% if(file.sha == undefined) { %>
+							<a href="#/product/<%= file.full_name %> /git/trees/master">	
+						<% } else { %>
+								<a href="#/product/<%- escape(file.url) %>">
+						<% } %>
+						
+							<%= file.path %>
+						</a>
+					</div>
 				</div>
-			</div>
-		<% }); %>			
+			<% }); %>			
+		</div>
+		<div class="globalCaption"></div>
+		<div class="scrollbar"><div class="slider"><div class="position"></div></div></div>
 	</div>
-	<div class="globalCaption"></div>
-	<div class="scrollbar"><div class="slider"><div class="position"></div></div></div>
+	<div style="width:100%; float : left; margin:0% 25%;">
+		<span>Comments</span>
+		<div style="width:100%; float : left;">
+			<textarea id="commentTextArea" style="float : left; margin-bottom:20px;" rows="4" cols="50"></textarea>
+			<div style="width:100%; height:10px; float:left;"> </div>
+			<span id="addCommentBtn" style="float:left; width:auto; padding:10px; background-color:#CCC; cursor: pointer;">Add Comments</span>
+		 </div>
+	</div>
 </div>

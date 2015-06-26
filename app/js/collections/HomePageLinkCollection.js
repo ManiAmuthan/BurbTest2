@@ -5,11 +5,10 @@ define([
 ], function(_, Backbone, navigationModel) {
   var navigationCollection = Backbone.Collection.extend({
 		models : navigationModel,
-		url: 'https://api.github.com/users/maniamuthan/repos',
+		url : 'https://community-dweetio.p.mashape.com/get/dweets/for/maniamuthann',
 		parse: function(response) {
 			return response.results;
 		},
-		
 		initialize: function(){
 			
 		}

@@ -8,10 +8,10 @@ describe('Home Model', function() {
 	describe('when fetch', function(){
 		it('should set URL', function(){
 			var collection = {
-				url: "https://api.burberry.com/v1/apps/ecom/navigation?country=GB"
+				url: "https://community-dweetio.p.mashape.com/dweet/for/maniamuthann?content="
 			};
 			this.hLink.collection = homelinkModel;
-			expect(this.hlink.url()).toEqual("https://api.burberry.com/v1/apps/ecom/navigation?country=GB");			
+			expect(this.hlink.url()).toEqual("https://community-dweetio.p.mashape.com/dweet/for/maniamuthann?content=");			
 		});
 	});
 });

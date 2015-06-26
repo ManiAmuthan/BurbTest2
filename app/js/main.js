@@ -9,6 +9,12 @@ require.config({
 		templates: '../templates'
 	}
 });
-require(['router/MainRouter'], function(MainRouter){
+require(['router/MainRouter', 'jquery'], function(MainRouter, $){
 	MainRouter.initialize();
+	$.ajaxSetup({
+		headers: {
+			'X-Mashape-Key':'D1ksv0lXx0msh9W3UzQgbNmcJVc7p1r0hzIjsn5OL2tmT05RAE',
+			'Accept':'application/json'
+		}
+	});
 });
