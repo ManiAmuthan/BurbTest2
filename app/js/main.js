@@ -4,7 +4,7 @@ require.config({
 		jquery: 'libs/jquery/jquery-min',
 		underscore: 'libs/underscore/underscore-min', 
 		backbone: 'libs/backbone/backbone-min', 
-		contentflow: 'libs/contentflow', 
+		contentflow: 'libs/contentflow_src', 
 		text: 'libs/require/text',
 		templates: '../templates'
 	}

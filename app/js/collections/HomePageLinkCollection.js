@@ -5,7 +5,7 @@ define([
 ], function(_, Backbone, navigationModel) {
   var navigationCollection = Backbone.Collection.extend({
 		models : navigationModel,
-		url: 'https://api.burberry.com/v1/apps/ecom/navigation?country=GB',
+		url: 'https://api.github.com/users/maniamuthan/repos',
 		parse: function(response) {
 			return response.results;
 		},

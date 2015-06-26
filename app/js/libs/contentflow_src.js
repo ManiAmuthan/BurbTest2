@@ -107,7 +107,9 @@ var ContentFlowGlobal = {
         if (!this.AddOnBaseDir) this.AddOnBaseDir = this.BaseDir;
         if (!this.CSSBaseDir) this.CSSBaseDir = this.BaseDir;
     },
-
+	reload : function(_flaggy){
+		console.log("RELOAD FUNC CALLED ::: "+ _flaggy);
+	},
     init: function () {
         /* add default stylesheets */
         this.addStylesheet(this.CSSBaseDir+'contentflow.css');
@@ -167,6 +169,7 @@ var ContentFlowGlobal = {
     },
 
     onloadInit: function () {
+		console.log("On Load Init Called");
         // quit if this function has already been called
         if (arguments.callee.done) return;
         for (var i=0; i< ContentFlowGlobal.loadAddOns.length; i++) {
@@ -661,6 +664,7 @@ ContentFlowItem.prototype = {
  * ============================================================
  */
 var ContentFlow = function (container, config) {
+	console.log("Content Flow");
     if (container) {
         ContentFlowGlobal.Flows.push(this);
         this.Container = container;
@@ -722,7 +726,7 @@ ContentFlow.prototype = {
 
         /* ==================== actions ==================== */
 
-        onInit: function () {},
+        onInit: function () {console.log("ON INIT CALLED");},
 
         onclickInactiveItem: function (item) {},
 
@@ -832,7 +836,11 @@ ContentFlow.prototype = {
    
         calcOpacity: function (item) {
             return Math.max(1 - ((1 - this.conf.endOpacity ) * Math.sqrt(Math.abs(item.relativePositionNormed))), this.conf.endOpacity);
-        }
+        },
+		reload : function(_flaggy){
+			console.log("RELOAD CALLED");
+			if(_flaggy) this.onloadInit();
+		}
     },
 
     /* ---------- end of defaultConf ---------- */

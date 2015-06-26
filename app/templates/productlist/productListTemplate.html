@@ -1,18 +1,25 @@
-<div id="ContentFlowPList">
+<div id="ContentFlowPList" class="ContentFlow">
 	<div class="loadIndicator"><div class="indicator"></div></div>
 	<div class="flow">
-	
-		<% _.each( ref.shelves, function( shelf ){ %>
-		<% for(var i = 0; i < 7; i++){ %>
+		<% _.each( ref, function( file ){ %>
 			<div class="item">
-				<img class="content" src="<%= shelf.products[i].media.image %>" ></img>
+				<% if(file.type == "blob"){ %>
+					<img class="content" src="/css/img/file_reestr.png" ></img>
+				<% }else { %>
+					<img class="content" src="/css/img/Folder-icon.png" ></img>
+				<% } %>
 				<div class="caption">
-					<a>
-						<%= shelf.products[i].default_name %>
+				
+					<% if(file.sha == undefined) { %>
+						<a href="#/product/<%= file.full_name %> /git/trees/master">	
+					<% } else { %>
+							<a href="#/product/<%- escape(file.url) %>">
+					<% } %>
+					
+						<%= file.path %>
 					</a>
 				</div>
 			</div>
-		<% }; %>
 		<% }); %>			
 	</div>
 	<div class="globalCaption"></div>

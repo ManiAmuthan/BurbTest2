@@ -9,12 +9,6 @@ define([
 		mainPath_two : '/git/trees/master',
 		
 		url: function(){
-			var isHttps = (this.options.subPath).indexOf("https");
-			if(isHttps >= 0){
-				var url = unescape((this.options.subPath).toString());
-				console.log("url ::::::::::::: " + url);
-				return url;
-			}
 			return this.mainPath_one + this.options.subPath + this.mainPath_two;
 		},
 		parse: function(response) {

@@ -16,15 +16,17 @@ define([
 			var that = this;
 			that.collection.fetch({
 				success:function (collection, response) {
-					var data = response.response;
+					var data = response;
 					var template = _.template(mainTemplate);
+					console.log(data[0].full_name);
 					$('.containerMain').html(template({ref : data}));
 					setTimeout(function(){
-						require(['contentflow'], function (flow){
+						window.contentflow = require(['contentflow'], function (flow){
 							var cf = new ContentFlow('ContentFlow', {reflectionColor: "#000000", 
 																	circularFlow : false, 
 																	startItem: 0});	
 						});
+						
 					}, 1000);
 				
 				}
